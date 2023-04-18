@@ -642,6 +642,8 @@ input, select, textarea {
 		border: 0;
 		display: inline-block;
 		position: relative;
+		margin: 0 auto;
+  		max-width: 100%;
 	}
 
 		.image:before {
@@ -1103,6 +1105,11 @@ input, select, textarea {
 	input[type="button"],
 	button {
 		line-height: calc(2.75rem - 2px);
+	}
+
+	.animal-photo-container {
+		display: flex;
+	  	margin-top: 2.75rem;
 	}
 
 /* BG */

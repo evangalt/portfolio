@@ -1,3 +1,28 @@
+// Generate a random dog photo from dog.ceo
+const button = document.getElementById('animal-photo');
+let span = null;
+
+button.addEventListener('click', () => {
+  fetch('https://dog.ceo/api/breeds/image/random')
+	.then(response => response.json())
+	.then(data => {
+	  const img = document.createElement('img');
+	  img.classList.add('image');
+	  img.src = data.message;
+	  const newSpan = document.createElement('span');
+	  newSpan.classList.add('animal-photo-container'); // Add a class name to the new span element
+	  newSpan.appendChild(img);
+	  if (span) {
+		button.parentNode.replaceChild(newSpan, span);
+	  } else {
+		button.parentNode.insertBefore(newSpan, button.nextSibling);
+	  }
+	  span = newSpan;
+	})
+	.catch(error => console.error(error));
+});
+
+// Site jQuery formatting
 (function($) {
 
 	var	$window = $(window),
